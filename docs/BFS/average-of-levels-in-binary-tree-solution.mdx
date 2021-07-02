@@ -1,0 +1,34 @@
+```js
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number[]}
+ */
+var averageOfLevels = function (root) {
+	let to_visit = [root];
+
+	const sum_per_levels = [];
+	let how_much_nodes = 1;
+
+	while (how_much_nodes) {
+		let sum_for_this_row = 0;
+
+		for (let i = 0; i < how_much_nodes; i++) {
+			const current = to_visit.shift();
+			sum_for_this_row += current.val;
+			if (current.left) to_visit.push(current.left);
+			if (current.right) to_visit.push(current.right);
+		}
+		sum_per_levels.push(sum_for_this_row / how_much_nodes);
+		how_much_nodes = to_visit.length;
+	}
+	return sum_per_levels;
+};
+```
