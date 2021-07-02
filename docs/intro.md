@@ -2,34 +2,32 @@
 sidebar_position: 1
 ---
 
-# Tutorial Intro
+import useBaseUrl from '@docusaurus/useBaseUrl';
 
-Let's discover **Docusaurus in less than 5 minutes**.
+# Intro
 
-## Getting Started
+## Side bar
 
-Get started by **creating a new site**.
+Tasks are grouped into categories depending on the pattern required to solve the condition.
 
-Or **try Docusaurus immediately** with **[new.docusaurus.io](https://new.docusaurus.io)**.
+<img alt="Paths in side-bar" src={useBaseUrl('/img/left_bar-paths.jpg')} />
 
-## Generate a new site
+In the category, the subheading titles match the task title on the leetcode. The symbol next to the task title shows its difficulty.
 
-Generate a new Docusaurus site using the **classic template**:
+- 🔵 - easy
+- 🟡 - medium
+- 🔴 - hard
 
-```shell
-npx @docusaurus/init@latest init my-website classic
-```
+<!-- 🟦🟨🟥 -->
 
-## Start your site
+<img alt="Chapters in side-bar" src={useBaseUrl('/img/left_bar-chapters.jpg')} />
 
-Run the development server:
+## Content
 
-```shell
-cd my-website
+After the title of the task, is the section with its condition.
 
-npx docusaurus start
-```
+<img width="600px" alt="Condition in content page" src={useBaseUrl('/img/src_page-condition.jpg')} />
 
-Your site starts at `http://localhost:3000`.
+After condition block, is block with solution code.
 
-Open `docs/intro.md` and edit some lines: the site **reloads automatically** and display your changes.
+<img width="600px" alt="Solution in content page" src={useBaseUrl('/img/src_page-solution.jpg')} />
