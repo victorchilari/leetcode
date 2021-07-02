@@ -5,8 +5,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 module.exports = {
 	title: 'LeetCode Patterns - Solutions',
 	tagline: 'FAANG are waiting for me :)',
-	url: 'https://victorchilari.github.io/leetcode/',
-	baseUrl: '/',
+	url: 'https://victorchilari.github.io',
+	baseUrl: '/leetcode/',
 	onBrokenLinks: 'throw',
 	onBrokenMarkdownLinks: 'warn',
 	favicon: 'img/favicon.ico',
