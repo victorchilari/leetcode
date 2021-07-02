@@ -1,0 +1,26 @@
+---
+sidebar_position: 1
+---
+
+# 217. Contains Duplicate 🔵
+
+<!-- 🟦 -->
+
+import Condition from './contains-duplicate-condition';
+
+## Condion
+
+<Condition />
+
+## Solution
+
+```js
+/**
+ * @param {number[]} nums
+ * @return {boolean}
+ */
+var containsDuplicate = function (nums) {
+	const set = new Set(nums);
+	return set.size != nums.length;
+};
+```
