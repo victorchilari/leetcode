@@ -9,7 +9,7 @@ module.exports = {
 	baseUrl: '/leetcode/',
 	onBrokenLinks: 'throw',
 	onBrokenMarkdownLinks: 'warn',
-	favicon: 'img/favicon.ico',
+	favicon: 'https://assets.leetcode.com/static_assets/public/icons/favicon-96x96.png',
 	organizationName: 'victorchilari', // Usually your GitHub org/user name.
 	projectName: 'leetcode', // Usually your repo name.
 	themeConfig: {
@@ -17,7 +17,7 @@ module.exports = {
 			title: 'Solutions for LeetCode Patterns',
 			logo: {
 				alt: 'My Site Logo',
-				src: 'img/logo.svg'
+				src: 'https://assets.leetcode.com/static_assets/public/icons/favicon-192x192.png'
 			},
 			items: [
 				{
