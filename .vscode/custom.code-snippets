@@ -1,0 +1,12 @@
+{
+	"Import React": {
+		"prefix": "impr",
+		"body": ["import React from 'react';\n\n"],
+		"description": "Import React"
+	},
+	"Export default UI function": {
+		"prefix": "exdefui",
+		"body": ["export default () => (\n\t<>\n\t\t$0\n\t</>\n)"],
+		"description": "Declare an anonym function which contains UI and will be exported by default"
+	}
+}
