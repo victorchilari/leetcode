@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Condition = () => (
+export default () => (
 	<div>
 		Given the <code>root</code> of a binary tree, return{' '}
 		<em>the average value of the nodes on each level in the form of an array</em>. Answers
@@ -57,5 +57,3 @@ const Condition = () => (
 		</ul>
 	</div>
 );
-
-export default Condition;

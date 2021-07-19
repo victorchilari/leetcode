@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Condition = () => (
+export default () => (
 	<div>
 		<p>
 			Given an integer array <code>nums</code>, return <code>true</code> if any value
@@ -50,5 +50,3 @@ const Condition = () => (
 		</ul>
 	</div>
 );
-
-export default Condition;
