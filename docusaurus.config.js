@@ -88,16 +88,11 @@ module.exports = {
 		[
 			'@docusaurus/preset-classic',
 			{
-				// docs: {
-				// 	sidebarPath: require.resolve('./sidebars.js'),
-				// 	// Please change this to your repo.
-				// 	editUrl: 'https://github.com/facebook/docusaurus/edit/master/website/'
-				// },
-				// blog: {
-				// 	showReadingTime: true,
-				// 	// Please change this to your repo.
-				// 	editUrl: 'https://github.com/facebook/docusaurus/edit/master/website/blog/'
-				// },
+				docs: {
+					sidebarPath: require.resolve('./sidebars.js'),
+					routeBasePath: '/'
+				},
+				blog: false,
 				theme: {
 					customCss: require.resolve('./src/css/custom.css')
 				}

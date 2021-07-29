@@ -1,10 +1,10 @@
 ---
 sidebar_position: 1
+slug: '/'
+title: Intro
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
-
-# Intro
 
 ## Side bar
 
