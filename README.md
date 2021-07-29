@@ -5,7 +5,7 @@
 This is a repository where I collect my code solucions from [LeetCode](https://leetcode.com/).
 My profile on [LeetCode](https://leetcode.com/victor1chilari1/) (if you want to see how active I'm on this platform 😁 PS: not very active).
 
-This README file contains description about how to work with this repository. If you are in search for how to use the final product (website/documentation), how easly navigate throw them, watch [intro](https://victorchilari.github.io/leetcode/)
+This README file contains description about how to work with this repository. If you are in search for how to use the final product (website/documentation), how easly navigate throw them, watch [intro](https://victorchilari.github.io/leetcode/).
 
 ## Commands after you copied this repository
 
