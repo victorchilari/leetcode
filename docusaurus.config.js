@@ -42,7 +42,7 @@ module.exports = {
 					items: [
 						{
 							label: 'Solutions',
-							to: '/intro'
+							to: '/'
 						}
 					]
 				},
