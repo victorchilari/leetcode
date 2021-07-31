@@ -39,8 +39,27 @@ async function appendInFile(filePath, data) {
 	}
 }
 
+function replaceInFile(filePath, oldValue, newValue) {
+	fs.readFile(filePath, 'utf-8', function (err, data) {
+		if (err) throw err;
+		const wholeNewText = data.replace(oldValue, newValue);
+		fs.writeFile(filePath, wholeNewText, 'utf-8', function (err, data) {
+			if (err) throw err;
+		});
+	});
+}
+
+// replaceInFile('docs/arrays/contains-duplicate.mdx', '<Solution />', 'asd');
+// replaceInFile(
+// 	'sidebars.js',
+// 	JSON.stringify(['arrays/contains-duplicate']).replace(/"/g, "'"),
+// 	JSON.stringify(['arrays/contains-duplicate', 'asd']).replace(/"/g, "'"),
+// 	'asd'
+// );
+
 module.exports = {
 	appendInFile,
 	createPath,
+	replaceInFile,
 	writeInFile
 };
