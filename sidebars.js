@@ -18,7 +18,7 @@ module.exports = {
 		'intro',
 		{
 			type: 'category',
-			label: 'Array',
+			label: 'Arrays',
 			items: ['arrays/contains-duplicate']
 		},
 		{
