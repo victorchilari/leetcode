@@ -8,18 +8,14 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.put('/create', (req, res) => {
-	console.log(req.query);
-	console.log(req.body);
-	const info = {};
-	info.type = req.query.type;
-	info.content = req.body;
-	// texts.push(info);
-	console.log(info);
 	create({
 		title: 'hey',
-		condition: req.body,
-		solution: 'it is a solution',
-		whatToDo: [req.query.type]
+		type: req.query.type,
+		data: {
+			code: req.body,
+			lang: req.query.lang,
+			method: req.query.method
+		}
 	});
 	res
 		.status(200)
@@ -30,5 +26,5 @@ app.put('/create', (req, res) => {
 });
 
 app.listen(port, () => {
-	console.log(`Example app listening at http://localhost:${port}`);
+	console.log(`App listening at http://localhost:${port}`);
 });
