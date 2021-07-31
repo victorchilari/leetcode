@@ -1,10 +1,11 @@
 const fsh = require('./fs_helper');
-const types = require('../types');
+const types = require('./types');
+const {trycatch} = require('./frequently');
 const sidebar = require('../../sidebars').docs;
 console.log(sidebar);
 
-async function createConditionFile(filePath, data) {
-	try {
+function createConditionFile(filePath, data) {
+	trycatch(async () => {
 		fsh.createPath(filePath);
 		await fsh.writeInFile(
 			filePath,
@@ -12,13 +13,11 @@ async function createConditionFile(filePath, data) {
 		);
 		await fsh.appendInFile(filePath, data);
 		await fsh.appendInFile(filePath, '\n);');
-	} catch (err) {
-		throw new Error(err);
-	}
+	});
 }
 
-async function createSolutionFile(filePath, data) {
-	try {
+function createSolutionFile(filePath, data) {
+	trycatch(async () => {
 		fsh.createPath(filePath);
 		await fsh.writeInFile(
 			filePath,
@@ -26,9 +25,7 @@ async function createSolutionFile(filePath, data) {
 		);
 		await fsh.appendInFile(filePath, data.code);
 		await fsh.appendInFile(filePath, '\n```');
-	} catch (err) {
-		throw new Error(err);
-	}
+	});
 }
 
 /**
