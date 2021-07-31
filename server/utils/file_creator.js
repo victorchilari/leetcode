@@ -35,7 +35,7 @@ function createSolutionFile(filePath, data) {
  * @param {string[]} whatToDo
  */
 function create({title, condition, solution, whatToDo = []}) {
-	const correctTitle = title.toLowerCase().replaceAll(' ', '-');
+	const correctTitle = title.toLowerCase().replace(/ /g, '-');
 
 	//todo: trycatch
 	if (whatToDo.includes(types.CONDITION.toLowerCase())) {
