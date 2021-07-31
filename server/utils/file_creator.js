@@ -3,20 +3,6 @@ const types = require('../types');
 const sidebar = require('../../sidebars').docs;
 console.log(sidebar);
 
-async function createSolutionFile(filePath, data) {
-	try {
-		fsh.createPath(filePath);
-		await fsh.writeInFile(
-			filePath,
-			'```' + data.lang || process.env.SOLUTION_LANG + '\n'
-		);
-		await fsh.appendInFile(filePath, data.code);
-		await fsh.appendInFile(filePath, '\n```');
-	} catch (err) {
-		throw new Error(err);
-	}
-}
-
 async function createConditionFile(filePath, data) {
 	try {
 		fsh.createPath(filePath);
@@ -26,6 +12,20 @@ async function createConditionFile(filePath, data) {
 		);
 		await fsh.appendInFile(filePath, data);
 		await fsh.appendInFile(filePath, '\n);');
+	} catch (err) {
+		throw new Error(err);
+	}
+}
+
+async function createSolutionFile(filePath, data) {
+	try {
+		fsh.createPath(filePath);
+		await fsh.writeInFile(
+			filePath,
+			'```' + data.lang || process.env.SOLUTION_LANG + '\n'
+		);
+		await fsh.appendInFile(filePath, data.code);
+		await fsh.appendInFile(filePath, '\n```');
 	} catch (err) {
 		throw new Error(err);
 	}
