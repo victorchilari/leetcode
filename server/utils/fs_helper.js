@@ -1,9 +1,9 @@
-const fs = require('fs').promises;
+const fs = require('fs');
 const path = require('path');
 
 async function _isExist(path) {
 	try {
-		await fs.access(path);
+		await fs.promises.access(path);
 		return true;
 	} catch {
 		return false;
@@ -15,7 +15,7 @@ async function createPath(filePath) {
 		const dirname = path.dirname(filePath);
 		const exist = await _isExist(dirname);
 		if (!exist) {
-			await fs.mkdir(dirname, {recursive: true});
+			await fs.promises.mkdir(dirname, {recursive: true});
 		}
 		return exist;
 	} catch (err) {
@@ -25,7 +25,7 @@ async function createPath(filePath) {
 
 async function writeInFile(filePath, data) {
 	try {
-		await fs.writeFile(filePath, data, 'utf8');
+		await fs.promises.writeFile(filePath, data, 'utf8');
 	} catch (err) {
 		throw new Error(err);
 	}
@@ -33,7 +33,7 @@ async function writeInFile(filePath, data) {
 
 async function appendInFile(filePath, data) {
 	try {
-		await fs.appendFile(filePath, data, 'utf8');
+		await fs.promises.appendFile(filePath, data, 'utf8');
 	} catch (err) {
 		throw new Error(err);
 	}
