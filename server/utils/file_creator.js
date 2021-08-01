@@ -22,6 +22,23 @@ function createSolutionFile(filePath, {lang, code}) {
 	});
 }
 
+function createTaskFile({filePath, fileName, levelSign, urlName, method}) {
+	const stringBeforeImport = `# ${fileName} ${levelSign}\n\n`;
+	const stringAfterImport =
+		'\n## Condition\n\n<Condition />\n\n## Solution\n\n<Solution />';
+
+	const stringImportCondition = `import Condition from './../__conditions/${urlName}.condition';\n`;
+	const stringImportSolution = `import Solution from './${urlName}.solution.${method}.mdx';\n`;
+
+	trycatch(async () => {
+		fsh.createPath(filePath);
+		await fsh.writeInFile(filePath, stringBeforeImport);
+		await fsh.appendInFile(filePath, stringImportCondition);
+		await fsh.appendInFile(filePath, stringImportSolution);
+		await fsh.appendInFile(filePath, stringAfterImport);
+	});
+}
+
 /**
  * @param {string} title
  * @param {string} type
@@ -45,6 +62,13 @@ function create({title, type, data}) {
 	}
 
 	//* just after create file with solution, can create doc file
+	createTaskFile({
+		filePath: `docs/${data.method.toLowerCase()}/${correctTitle}.mdx`,
+		fileName: title,
+		levelSign: '🔵',
+		urlName: correctTitle,
+		method: data.method.toLowerCase()
+	});
 
 	//todo update sidebar just after create doc file
 	// updateSidebar(data.method, correctTitle);
