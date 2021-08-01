@@ -1,9 +1,8 @@
 const fsh = require('./fs_helper');
 const types = require('./types');
 const {trycatch} = require('./frequently');
-// const sidebar = require('../../sidebars').docs;
-// const introPage = sidebar.shift();
-// console.log(sidebar);
+const sidebar = require('../../sidebars').docs;
+sidebar.shift(); // remove intro page
 
 function createConditionFile(filePath, condition) {
 	const stringBeforeCondition = "import React from 'react';\n\nexport default () => (\n";
@@ -23,6 +22,27 @@ function createSolutionFile(filePath, {lang, code}) {
 		await fsh.appendInFile(filePath, code);
 		await fsh.appendInFile(filePath, '\n```'); // after code
 	});
+}
+
+function updateSidebar(method, urlTitle) {
+	//! improve logic that calculate which name will be add in sidebar
+	// now it take name from request - its good concept, but is wrong logic
+	//* lets take name after create doc
+	const group = sidebar.find(
+		category => category.label.toLowerCase() === method.toLowerCase()
+	);
+
+	if (Object.keys(group).length > 0) {
+		const pathToPage = `${method.toLowerCase()}/${urlTitle}`;
+
+		if (group.items.includes(pathToPage)) {
+			throw new Error(`Solution for ${urlTitle} resolved with ${method} - exist`);
+		}
+
+		const oldLine = group.items;
+		const newLine = [...group.items, pathToPage];
+		fsh.replaceInFile('sidebars.js', oldLine, newLine, true);
+	}
 }
 
 /**
@@ -45,12 +65,9 @@ function create({title, type, data}) {
 	}
 
 	//* just after create file with solution, can create doc file
-	// const group = sidebar.find(
-	// 	category => category.label.toLowerCase() === data.method.toLowerCase()
-	// );
-	// sidebar.unshift(introPage);
-	// group.items.push(`${data.method.toLowerCase()}/${correctTitle}`);
-	// console.log(sidebar);
+
+	//todo update sidebar just after create doc file
+	// updateSidebar(data.method, correctTitle);
 }
 
 module.exports = {

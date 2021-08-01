@@ -39,9 +39,17 @@ async function appendInFile(filePath, data) {
 	}
 }
 
-function replaceInFile(filePath, oldValue, newValue) {
+function replaceInFile(filePath, oldValue, newValue, isPaseIntoArray = false) {
 	fs.readFile(filePath, 'utf-8', function (err, data) {
 		if (err) throw err;
+
+		if (isPaseIntoArray) {
+			newValue = JSON.stringify(newValue)
+				.replace(/\"/g, '')
+				.replace(/\[|\]/g, '')
+				.replace(/\,/g, "', '");
+		}
+
 		const wholeNewText = data.replace(oldValue, newValue);
 		fs.writeFile(filePath, wholeNewText, 'utf-8', function (err, data) {
 			if (err) throw err;
