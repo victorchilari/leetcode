@@ -57,25 +57,31 @@ function create({title, type, level, data}) {
 		.replace(/ /g, '-');
 
 	//todo: trycatch
-	if (type.toLowerCase() === types.CONDITION.toLowerCase()) {
-		createConditionFile(`docs/__conditions/${correctTitle}.condition.jsx`, data.code);
-	}
-	if (type.toLowerCase() === types.SOLUTION.toLowerCase()) {
-		createSolutionFile(
-			`docs/${data.method.toLowerCase()}/${correctTitle}.solution.${data.method.toLowerCase()}.mdx`,
-			data
-		);
+	switch (type.toUpperCase()) {
+		case types.CONDITION:
+			createConditionFile(`docs/__conditions/${correctTitle}.condition.jsx`, data.code);
+			break;
+		case types.SOLUTION:
+			createSolutionFile(
+				`docs/${data.method.toLowerCase()}/${correctTitle}.solution.${data.method.toLowerCase()}.mdx`,
+				data
+			);
 
-		//* just after create file with solution, can create doc file
-		createTaskFile({
-			filePath: `docs/${data.method.toLowerCase()}/${correctTitle}.mdx`,
-			fileName: title,
-			level,
-			urlName: correctTitle,
-			method: data.method.toLowerCase()
-		});
+		case types.CREATE_TASK:
+			createTaskFile({
+				filePath: `docs/${data.method.toLowerCase()}/${correctTitle}.mdx`,
+				fileName: title,
+				level,
+				urlName: correctTitle,
+				method: data.method.toLowerCase()
+			});
 
-		fu.updateSidebar(data.method.toLowerCase(), correctTitle);
+		case types.UPDATE_SIDEBAR:
+			fu.updateSidebar(data.method.toLowerCase(), correctTitle);
+			break;
+
+		default:
+			break;
 	}
 
 	//todo update sidebar just after create doc file
