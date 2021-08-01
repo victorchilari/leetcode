@@ -11,6 +11,7 @@ app.put('/create', (req, res) => {
 	create({
 		title: '123. Two Sum',
 		type: req.query.type,
+		level: req.query.level,
 		data: {
 			code: req.body,
 			lang: req.query.lang,

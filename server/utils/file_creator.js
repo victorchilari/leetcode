@@ -1,5 +1,10 @@
+require('dotenv').config();
+const env = process.env;
+
 const fsh = require('./fs_helper');
 const types = require('./types');
+const levelSignes = require('./level_signes.json')[env.CONDITION_LEVEL_TYPE];
+
 const {trycatch} = require('./frequently');
 
 function createConditionFile(filePath, condition) {
@@ -13,17 +18,17 @@ function createConditionFile(filePath, condition) {
 	});
 }
 
-function createSolutionFile(filePath, {lang, code}) {
+function createSolutionFile(filePath, {lang = env.SOLUTION_LANG, code}) {
 	trycatch(async () => {
 		fsh.createPath(filePath);
-		await fsh.writeInFile(filePath, '```' + lang || process.env.SOLUTION_LANG); // before code
-		await fsh.appendInFile(filePath, `\n${code}`);
+		await fsh.writeInFile(filePath, '```' + lang + '\n'); // before code
+		await fsh.appendInFile(filePath, code);
 		await fsh.appendInFile(filePath, '\n```'); // after code
 	});
 }
 
-function createTaskFile({filePath, fileName, levelSign, urlName, method}) {
-	const stringBeforeImport = `# ${fileName} ${levelSign}\n\n`;
+function createTaskFile({filePath, fileName, level, urlName, method}) {
+	const stringBeforeImport = `# ${fileName} ${levelSignes[level]}\n\n`;
 	const stringAfterImport =
 		'\n## Condition\n\n<Condition />\n\n## Solution\n\n<Solution />';
 
@@ -44,7 +49,7 @@ function createTaskFile({filePath, fileName, levelSign, urlName, method}) {
  * @param {string} type
  * @param {{code: string, lang?: string, method?: string}} data
  */
-function create({title, type, data}) {
+function create({title, type, level, data}) {
 	const correctTitle = title
 		.toLowerCase()
 		.replace(/^\d+\. /, '')
@@ -59,16 +64,16 @@ function create({title, type, data}) {
 			`docs/${data.method.toLowerCase()}/${correctTitle}.solution.${data.method.toLowerCase()}.mdx`,
 			data
 		);
-	}
 
-	//* just after create file with solution, can create doc file
-	createTaskFile({
-		filePath: `docs/${data.method.toLowerCase()}/${correctTitle}.mdx`,
-		fileName: title,
-		levelSign: '🔵',
-		urlName: correctTitle,
-		method: data.method.toLowerCase()
-	});
+		//* just after create file with solution, can create doc file
+		createTaskFile({
+			filePath: `docs/${data.method.toLowerCase()}/${correctTitle}.mdx`,
+			fileName: title,
+			level,
+			urlName: correctTitle,
+			method: data.method.toLowerCase()
+		});
+	}
 
 	//todo update sidebar just after create doc file
 	// updateSidebar(data.method, correctTitle);
