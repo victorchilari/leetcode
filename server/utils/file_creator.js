@@ -21,14 +21,14 @@ function createConditionFile(filePath, condition) {
 function createSolutionFile(filePath, {lang = env.SOLUTION_LANG, code}) {
 	trycatch(async () => {
 		fsh.createPath(filePath);
-		await fsh.writeInFile(filePath, '```' + lang + '\n'); // before code
+		await fsh.writeInFile(filePath, '```' + lang.toLowerCase() + '\n'); // before code
 		await fsh.appendInFile(filePath, code);
 		await fsh.appendInFile(filePath, '\n```'); // after code
 	});
 }
 
 function createTaskFile({filePath, fileName, level, urlName, method}) {
-	const stringBeforeImport = `# ${fileName} ${levelSignes[level]}\n\n`;
+	const stringBeforeImport = `# ${fileName} ${levelSignes[level.toLowerCase()]}\n\n`;
 	const stringAfterImport =
 		'\n## Condition\n\n<Condition />\n\n## Solution\n\n<Solution />';
 
