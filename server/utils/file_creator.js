@@ -28,7 +28,10 @@ function createSolutionFile(filePath, {lang, code}) {
  * @param {{code: string, lang?: string, method?: string}} data
  */
 function create({title, type, data}) {
-	const correctTitle = title.toLowerCase().replace(/ /g, '-');
+	const correctTitle = title
+		.toLowerCase()
+		.replace(/^\d+\. /, '')
+		.replace(/ /g, '-');
 
 	//todo: trycatch
 	if (type.toLowerCase() === types.CONDITION.toLowerCase()) {

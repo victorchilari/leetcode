@@ -9,7 +9,7 @@ app.use(express.urlencoded({extended: true}));
 
 app.put('/create', (req, res) => {
 	create({
-		title: 'hey',
+		title: '123. Two Sum',
 		type: req.query.type,
 		data: {
 			code: req.body,
