@@ -3,6 +3,7 @@ const env = process.env;
 
 const fsh = require('./fs_helper');
 const types = require('./types');
+const fu = require('./file_updator');
 const levelSignes = require('./level_signes.json')[env.CONDITION_LEVEL_TYPE];
 
 const {trycatch} = require('./frequently');
@@ -73,6 +74,8 @@ function create({title, type, level, data}) {
 			urlName: correctTitle,
 			method: data.method.toLowerCase()
 		});
+
+		fu.updateSidebar(data.method.toLowerCase(), correctTitle);
 	}
 
 	//todo update sidebar just after create doc file

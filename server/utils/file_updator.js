@@ -1,4 +1,6 @@
-const sidebar = require('../../sidebars').docs.shift(); // without intro page
+const fsh = require('./fs_helper');
+const sidebar = require('../../sidebars').docs; // without intro page
+sidebar.shift();
 
 function updateSidebar(method, urlTitle) {
 	//! improve logic that calculate which name will be add in sidebar
