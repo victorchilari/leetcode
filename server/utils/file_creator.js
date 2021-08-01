@@ -16,8 +16,8 @@ function createConditionFile(filePath, condition) {
 function createSolutionFile(filePath, {lang, code}) {
 	trycatch(async () => {
 		fsh.createPath(filePath);
-		await fsh.writeInFile(filePath, '```' + lang || process.env.SOLUTION_LANG + '\n'); // before code
-		await fsh.appendInFile(filePath, code);
+		await fsh.writeInFile(filePath, '```' + lang || process.env.SOLUTION_LANG); // before code
+		await fsh.appendInFile(filePath, `\n${code}`);
 		await fsh.appendInFile(filePath, '\n```'); // after code
 	});
 }
