@@ -9,11 +9,15 @@ This README file contains description about how to work with this repository. If
 
 ## Commands after you copied this repository
 
-### Installation
+This command create a .sh file which runs before execut `git commit` and preaty staged files.
+
+### Prepare packages
 
 ```console
-yarn install
+yarn prepare-packages
 ```
+
+This command installs the dependencies. Then create a file that is responsible for rewriting git hooks.
 
 ### Local Development
 
