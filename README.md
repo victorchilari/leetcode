@@ -14,7 +14,7 @@ This command create a .sh file which runs before execut `git commit` and preaty 
 ### Prepare packages
 
 ```console
-yarn prepare-packages
+npm run prepare-packages
 ```
 
 This command installs the dependencies. Then create a file that is responsible for rewriting git hooks.
@@ -22,7 +22,7 @@ This command installs the dependencies. Then create a file that is responsible f
 ### Local Development
 
 ```console
-yarn start
+npm start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
@@ -30,7 +30,7 @@ This command starts a local development server and opens up a browser window. Mo
 ### Build
 
 ```console
-yarn build
+npm build
 ```
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
@@ -38,7 +38,7 @@ This command generates static content into the `build` directory and can be serv
 ### Deployment on GitHub Pages
 
 ```console
-yarn deployOnGitHub
+npm run deployOnGitHub
 ```
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch. If firstly so `push` and secondly deploy, in `gh-page` will push a commit linked to the last commit from the main branch of the repository, otherwise will be linked to a commit internal for this branch.
