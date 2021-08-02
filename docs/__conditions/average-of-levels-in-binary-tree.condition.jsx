@@ -3,8 +3,10 @@ import React from 'react';
 export default () => (
 	<div>
 		Given the <code>root</code> of a binary tree, return{' '}
-		<em>the average value of the nodes on each level in the form of an array</em>. Answers
-		within{' '}
+		<em>
+			the average value of the nodes on each level in the form of an array
+		</em>
+		. Answers within{' '}
 		<code>
 			10<sup>-5</sup>
 		</code>{' '}
@@ -13,25 +15,25 @@ export default () => (
 			<strong>Example 1:</strong>
 		</p>
 		<img
-			alt=''
-			src='https://assets.leetcode.com/uploads/2021/03/09/avg1-tree.jpg'
-			style={{width: '277px', height: '302px'}}
+			alt=""
+			src="https://assets.leetcode.com/uploads/2021/03/09/avg1-tree.jpg"
+			style={{ width: '277px', height: '302px' }}
 		/>
 		<pre>
 			<strong>Input:</strong> root = [3,9,20,null,15,7]
 			<br />
 			<strong>Output:</strong> [3.00000,14.50000,11.00000]
 			<br />
-			<strong>Explanation:</strong> The average value of nodes on level 0 is 3, on level 1
-			is 14.5, and on level 2 is 11. Hence return [3, 14.5, 11].
+			<strong>Explanation:</strong> The average value of nodes on level 0 is 3,
+			on level 1 is 14.5, and on level 2 is 11. Hence return [3, 14.5, 11].
 		</pre>
 		<p>
 			<strong>Example 2:</strong>
 		</p>
 		<img
-			alt=''
-			src='https://assets.leetcode.com/uploads/2021/03/09/avg2-tree.jpg'
-			style={{width: '292px', height: '302px'}}
+			alt=""
+			src="https://assets.leetcode.com/uploads/2021/03/09/avg2-tree.jpg"
+			style={{ width: '292px', height: '302px' }}
 		/>
 		<pre>
 			<strong>Input:</strong> root = [3,9,20,15,7]
