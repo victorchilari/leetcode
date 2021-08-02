@@ -11,13 +11,11 @@ This README file contains description about how to work with this repository. If
 
 This command create a .sh file which runs before execut `git commit` and preaty staged files.
 
-### Prepare packages
+### Installation
 
 ```console
-npm run prepare-packages
+npm install
 ```
-
-This command installs the dependencies. Then create a file that is responsible for rewriting git hooks.
 
 ### Local Development
 
