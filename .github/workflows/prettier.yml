@@ -1,4 +1,4 @@
-name: Launch Prettier
+name: Prettify docs
 
 # This action works with pull requests and pushes
 on:
@@ -10,18 +10,17 @@ on:
 jobs:
   prettier:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
-          # Make sure the actual branch is checked out when running on pull requests
           ref: ${{ github.head_ref }}
-
-      - name: Prettify code
-        uses: creyD/prettier_action@v3.3
+      - uses: actions/setup-node@v2
         with:
-          # This part is also where you can pass other options, for example:
-          prettier_options: --write **/*.{js,md,jsx,mdx,css,html}
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+          node-version: '14.x'
+      - run: npm ci
+      - run: npm run prettify-docs
+      - name: Commit changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Apply formatting changes
+          branch: ${{ github.head_ref }}
