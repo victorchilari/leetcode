@@ -4,12 +4,13 @@ const env = process.env;
 const fsh = require('./fs_helper');
 const types = require('./types');
 const fu = require('./file_updator');
-const levelSignes = require('./level_signes.json')[env.CONDITION_LEVEL_TYPE];
+const levelSigns = require('./level_signs.json')[env.CONDITION_LEVEL_TYPE];
 
-const {trycatch} = require('./frequently');
+const { trycatch } = require('./frequently');
 
 function createConditionFile(filePath, condition) {
-	const stringBeforeCondition = "import React from 'react';\n\nexport default () => (\n";
+	const stringBeforeCondition =
+		"import React from 'react';\n\nexport default () => (\n";
 	const stringAfterCondition = '\n);';
 	trycatch(async () => {
 		fsh.createPath(filePath);
@@ -19,7 +20,7 @@ function createConditionFile(filePath, condition) {
 	});
 }
 
-function createSolutionFile(filePath, {lang = env.SOLUTION_LANG, code}) {
+function createSolutionFile(filePath, { lang = env.SOLUTION_LANG, code }) {
 	trycatch(async () => {
 		fsh.createPath(filePath);
 		await fsh.writeInFile(filePath, '```' + lang.toLowerCase() + '\n'); // before code
@@ -28,8 +29,10 @@ function createSolutionFile(filePath, {lang = env.SOLUTION_LANG, code}) {
 	});
 }
 
-function createTaskFile({filePath, fileName, level, urlName, method}) {
-	const stringBeforeImport = `# ${fileName} ${levelSignes[level.toLowerCase()]}\n\n`;
+function createTaskFile({ filePath, fileName, level, urlName, method }) {
+	const stringBeforeImport = `# ${fileName} ${
+		levelSigns[level.toLowerCase()]
+	}\n\n`;
 	const stringAfterImport =
 		'\n## Condition\n\n<Condition />\n\n## Solution\n\n<Solution />';
 
@@ -50,7 +53,7 @@ function createTaskFile({filePath, fileName, level, urlName, method}) {
  * @param {string} type
  * @param {{code: string, lang?: string, method?: string}} data
  */
-function create({title, type, level, data}) {
+function create({ title, type, level, data }) {
 	const correctTitle = title
 		.toLowerCase()
 		.replace(/^\d+\. /, '')
@@ -59,7 +62,10 @@ function create({title, type, level, data}) {
 	//todo: trycatch
 	switch (type.toUpperCase()) {
 		case types.CONDITION:
-			createConditionFile(`docs/__conditions/${correctTitle}.condition.jsx`, data.code);
+			createConditionFile(
+				`docs/__conditions/${correctTitle}.condition.jsx`,
+				data.code
+			);
 			break;
 		case types.SOLUTION:
 			createSolutionFile(
