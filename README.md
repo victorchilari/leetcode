@@ -67,7 +67,7 @@ After file was created, copy-paste previous pattern without saving changes. Now 
 2. Paste this content instead this comment: `// copy-paste the condition here`.
 3. Remove all `<p>&nbsp;</p>`.
 4. Before same lines: `<strong>Output:</strong>`, need to paste tag: `<br/>`
-5. Where is used this mathematical signes: `<`, `>`, replace them with: `&lt;` and `&mt;` respectivly.
+5. Where is used this mathematical signs: `<`, `>`, replace them with: `&lt;` and `&mt;` respectivly.
 
 Yes, this method is a bit sophisticated, especially to automate this process, a special page has been created, the instruction is [here]().
 
@@ -83,3 +83,35 @@ The next steps are easier than the previous ones 🙂
 1. Insed of file use this pattern for first line: <code>```**language in which is wrote solution's code**</code>.
 2. In the third line write: <code>```</code>.
 3. In the second line copy-paste solution's code.
+
+#### Create web-page for resolved task
+
+Next to the file with the solution we want to display in the "documentation", we create a file with the name: <code>**task_name**.mdx</code>.
+
+**Condition's title** - condition's title looks like this: `217. Contains Duplicate`. If it is not clear, open taks's page on LeetCode, in browser's console use this command: `document.querySelector('[data-cy="question-title"').innerText` - in console will apeare a string which contains what I call "condition's title".
+
+**Condition's level** - easy | medium | hard. Inside of Task's page will need to use special sign. Type of sign is indicated in the root file `.env` in parrameter `CONDITION_LEVEL_TYPE`. After you saw "signs' type", watch the file `server/utils/level_signs.json` and pick singe which is asociated for level of your condition's level.
+
+1. First line will contains: <code>**condition_title** **condition_level_sign**</code>.
+2. Import condition and solution like components. Naming will be respectivly: `Condition` and `Solution`
+3. Write a header of level 2 in markdown's style. Content: `Condition`. Below, insert `<Condition/>`
+4. Write a header of level 2 in markdown's style. Content: `Solution`. Below, insert `<Solution/>`
+
+##### Exemple of a file for same page:
+
+Path for this file: `docs/arrays/contains-duplicate.mdx`
+
+```mdx title="contains-duplicate.mdx"
+# 217. Contains Duplicate 🔵
+
+import Condition from './../__conditions/contains-duplicate.condition';
+import Solution from './contains-duplicate.solution.arrays.mdx';
+
+## Condition
+
+<Condition />
+
+## Solution
+
+<Solution />
+```
