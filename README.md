@@ -115,3 +115,9 @@ import Solution from './contains-duplicate.solution.arrays.mdx';
 
 <Solution />
 ```
+
+#### Display page with condition and solutin in sidebar
+
+1. Open `sidebars.js`.
+2. Find the object which is assigned for the category where you want to display the task.
+3. In field `items` of this object, insert a string which represent path to file which represent [web-page of the task](#create-web-page-for-resolved-task).
