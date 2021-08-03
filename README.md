@@ -49,7 +49,7 @@ Path `docs/` contains all files that are used to create documentation (pages wit
 
 #### Create condition
 
-To add new condition you need to create a file in `docs/__condtions/` with name which is used in URL of the page on [LeetCode](https://leetcode.com/) with problem which you want to insert in this project (ex. https://leetcode.com/problems/**contains-duplicate**/ - file's neme will be `contains-duplicate`). Use `.jsx` for file's extension. The pattern to use:
+To add new condition you need to create a file in `docs/__condtions/` with name which is used in URL of the page on [LeetCode](https://leetcode.com/) with problem which you want to insert in this project (ex. https://leetcode.com/problems/**contains-duplicate**/ - condition's name will be `contains-duplicate`) Use `.jsx` for file's extension. The pattern to use:
 
 <!-- prettier-ignore-start -->
 ```jsx
@@ -70,3 +70,16 @@ After file was created, copy-paste previous pattern without saving changes. Now 
 5. Where is used this mathematical signes: `<`, `>`, replace them with: `&lt;` and `&mt;` respectivly.
 
 Yes, this method is a bit sophisticated, especially to automate this process, a special page has been created, the instruction is [here]().
+
+#### Create solution
+
+Before to create a file with solution, you need to understand which pattern you used, read [here](https://github.com/seanprashad/leetcode-patterns/blob/e2147d008eb3b1320f600b36652d3906aaf106e2/README.md#tips-to-consider).
+
+After you understand the pattern to which your solution refers, open/create the folder corresponding to the pattern.
+Create a file whose name satisfies the next pattern: <code>**task's name**.solution.**pattern**.mdx</code>. **Task's name** is taked from URL of the page on [LeetCode](https://leetcode.com/) with problem which you want to insert in this project (ex. https://leetcode.com/problems/**contains-duplicate**/ - task's name will be `contains-duplicate`). The **pattern** used was determined when you decided in which folder you would create the solution file.
+
+The next steps are easier than the previous ones 🙂
+
+1. Insed of file use this pattern for first line: <code>```**language in which is wrote solution's code**</code>.
+2. In the third line write: <code>```</code>.
+3. In the second line copy-paste solution's code.
