@@ -3,8 +3,9 @@
 	"version": "0.2.0",
 	"private": true,
 	"scripts": {
+		"client": "docusaurus start",
 		"server": "node server/index",
-		"start": "concurrently \"docusaurus start\" \"npm run server\"",
+		"start": "concurrently \"npm run client\" \"npm run server\"",
 		"deployOnGitHub": "cmd /C \"set \"GIT_USER=victorchilari\" && npm run deploy\"",
 		"prettify-docs": "prettier --write docs/**/*",
 		"docusaurus": "docusaurus",
