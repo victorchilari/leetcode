@@ -9,8 +9,6 @@ This README file contains description about how to work with this repository. If
 
 ## Commands after you copied this repository
 
-This command create a .sh file which runs before execut `git commit` and preaty staged files.
-
 ### Installation
 
 ```console
