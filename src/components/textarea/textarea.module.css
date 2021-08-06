@@ -1,0 +1,20 @@
+.textarea {
+	border: 1px solid #ccc;
+	font-family: inherit;
+	font-size: inherit;
+	padding: 1px 6px;
+}
+
+.textarea {
+	display: block;
+	width: 100%;
+	overflow: hidden;
+	resize: none;
+	min-height: 40px;
+	line-height: 20px;
+}
+
+.textarea[contenteditable]:empty::before {
+	content: 'Placeholder still possible';
+	color: gray;
+}

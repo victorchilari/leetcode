@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './ci.module.css';
 
 // import CodeInput from './codeinput.mdx';
+import Textarea from './textarea/textarea';
 
 export default () => (
 	<>
@@ -37,16 +38,17 @@ export default () => (
 					<textarea
 						name="condition_input"
 						id="condition_input"
-						autocapitalize="off"
-						autocomplete="off"
-						autocorrect="off"
-						spellcheck="false"
+						autoCapitalize="off"
+						autoComplete="off"
+						autoCorrect="off"
+						spellCheck="false"
 						data-gramm="false"
 					>
 						Live Editor
 					</textarea>
 				</div>
 			</div>
+			<Textarea />
 		</div>
 	</>
 );
