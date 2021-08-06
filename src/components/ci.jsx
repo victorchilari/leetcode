@@ -32,23 +32,28 @@ export default () => (
 					attention to it.
 				</div>
 			</div>
-			<div className={styles.playgroundContainer}>
-				<div className={styles.playgroundHeader}>Live Editor</div>
-				{/* <div className={styles.playgroundEditor}>
-					 <textarea
-						name="condition_input"
-						id="condition_input"
-						autoCapitalize="off"
-						autoComplete="off"
-						autoCorrect="off"
-						spellCheck="false"
-						data-gramm="false"
-						>
-						Live Editor
-					</textarea> 
-				</div> */}
-				<Textarea />
+
+			<div className="row">
+				<div className="col">
+					<div className={styles.playgroundContainer}>
+						<div className={styles.playgroundHeader}>Live Editor</div>
+						<Textarea />
+					</div>
+				</div>
+				<div className="alert alert--warning col col--3">
+					<button aria-label="Close" className="clean-btn close" type="button">
+						<span aria-hidden="true">×</span>
+					</button>
+					This is a <strong>primary</strong> alert. You should probably pay
+					attention to it.
+				</div>
 			</div>
+
+			{/* <div className="row">
+				<div className="col">
+					<Textarea />
+				</div>
+			</div> */}
 		</div>
 	</>
 );
