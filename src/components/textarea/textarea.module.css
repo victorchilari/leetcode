@@ -3,9 +3,11 @@
 	vertical-align: top;
 	align-items: center;
 	position: relative;
-	border: solid 1px;
+	width: 100%;
+	border-width: 0px;
 	padding: 0.25em 0.5em;
-	margin: 5px;
+	margin: 0px;
+	background-color: #f6f8fa;
 }
 .inputSizer.stacked {
 	padding: 0.5em;
@@ -21,7 +23,6 @@ textarea {
 textarea {
 	width: auto;
 	min-width: 1em;
-	grid-area: 1 / 2;
 	font: inherit;
 	padding: 0.25em;
 	margin: 0;

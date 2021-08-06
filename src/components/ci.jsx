@@ -34,8 +34,8 @@ export default () => (
 			</div>
 			<div className={styles.playgroundContainer}>
 				<div className={styles.playgroundHeader}>Live Editor</div>
-				<div className={styles.playgroundEditor}>
-					<textarea
+				{/* <div className={styles.playgroundEditor}>
+					 <textarea
 						name="condition_input"
 						id="condition_input"
 						autoCapitalize="off"
@@ -43,12 +43,12 @@ export default () => (
 						autoCorrect="off"
 						spellCheck="false"
 						data-gramm="false"
-					>
+						>
 						Live Editor
-					</textarea>
-				</div>
+					</textarea> 
+				</div> */}
+				<Textarea />
 			</div>
-			<Textarea />
 		</div>
 	</>
 );
