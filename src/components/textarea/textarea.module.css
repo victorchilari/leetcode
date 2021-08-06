@@ -1,20 +1,43 @@
-.textarea {
-	border: 1px solid #ccc;
-	font-family: inherit;
-	font-size: inherit;
-	padding: 1px 6px;
+.inputSizer {
+	display: inline-grid;
+	vertical-align: top;
+	align-items: center;
+	position: relative;
+	border: solid 1px;
+	padding: 0.25em 0.5em;
+	margin: 5px;
+}
+.inputSizer.stacked {
+	padding: 0.5em;
+	align-items: stretch;
+}
+.inputSizer::after,
+input,
+textarea {
+	grid-area: 2 / 1;
 }
 
-.textarea {
-	display: block;
-	width: 100%;
-	overflow: hidden;
+.inputSizer::after,
+textarea {
+	width: auto;
+	min-width: 1em;
+	grid-area: 1 / 2;
+	font: inherit;
+	padding: 0.25em;
+	margin: 0;
 	resize: none;
-	min-height: 40px;
-	line-height: 20px;
+	background: none;
+	appearance: none;
+	border: none;
 }
 
-.textarea[contenteditable]:empty::before {
-	content: 'Placeholder still possible';
-	color: gray;
+.inputSizer::after {
+	content: attr(data-value) ' ';
+	visibility: hidden;
+	white-space: pre-wrap;
+}
+
+.inputSizer > textarea:focus,
+input:focus {
+	outline: none;
 }
